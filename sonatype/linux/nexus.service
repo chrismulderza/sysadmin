@@ -1,0 +1,14 @@
+[Unit]
+Description=Nexus Repository
+After=network.target
+
+[Service]
+Type=forking
+LimitNOFILE=65536
+ExecStart=/opt/sonatype/nexus-3.13.0-01/bin/nexus start
+ExecStop=/opt/sonatype/nexus-3.13.0-01/bin/nexus stop
+User=nexus
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
